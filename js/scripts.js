@@ -157,19 +157,29 @@ document.addEventListener('DOMContentLoaded', function() {
             calendarGrid.innerHTML = '';
             const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
             const monthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(currentYear, currentMonth));
-
+        
             document.getElementById('calendar-month').innerText = `${monthName} ${currentYear}`;
-
+        
             for (let day = 1; day <= daysInMonth; day++) {
                 let dayElement = document.createElement('div');
                 dayElement.classList.add('day');
                 dayElement.innerHTML = day;
-
+        
                 const event = events.find(e => e.date === `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`);
                 if (event) {
                     const eventElement = document.createElement('p');
                     eventElement.innerText = event.title;
+        
+                 
+                    const deleteButton = document.createElement('button');
+                    deleteButton.innerText = 'Delete';
+                    deleteButton.addEventListener('click', (e) => {
+                        e.stopPropagation(); 
+                        deleteEvent(event.date);
+                    });
+        
                     dayElement.appendChild(eventElement);
+                    dayElement.appendChild(deleteButton);
                     dayElement.addEventListener('click', () => editEvent(event));
                 } else {
                     dayElement.addEventListener('click', () => showForm(day));
@@ -177,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 calendarGrid.appendChild(dayElement);
             }
         }
-
+        
         function showForm(day) {
             eventForm.style.display = 'block';
             eventDateInput.value = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
