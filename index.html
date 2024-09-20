@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group 8</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="Calendar.js/dist/calendar.js.css">
+</head>
+<body>
+    <header>
+        <a href="#home" id="logo-link">
+            <span id="logo-text">Yoga Studio</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#home" id="home-link">Home</a></li>
+                <li><a href="#calendar" id="calendar-link">Calendar</a></li>
+                <li><a href="#music-player" id="music-link">Music Player</a></li>
+                <li><a href="#notes" id="notes-link">Notes</a></li>
+                <li><a href="#quiz" id="quiz-link">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="content">
+        <section id="home" class="container">
+            <h1>The Time For Right Yoga</h1>
+            <img src="images/images-4.jpg" alt="Main Picture" class="image">
+            <p>This is a basic scaffold for your web application. Use the navigation to access different features.</p>
+        </section>
+        <section id="calendar">
+            <div id="calendar">
+                <h2 id="calendar-month"></h2>
+                <button id="prev-month">Previous Month</button>
+                <button id="next-month">Next Month</button>
+                <div id="calendar-grid"></div>
+                <form id="eventForm" style="display:none;">
+                    <input type="text" id="eventTitle" placeholder="Event Title" required />
+                    <input type="date" id="eventDate" required />
+                    <button type="submit">Save Event</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="music-player">
+            <h2>Music Player</h2>
+            <input type="file" id="upload-music" accept="audio/*">
+            <audio id="audio-player" controls>Your browser does not support the audio element.</audio>
+        </section>
+
+        <section id="notes">
+            <h2>Notes</h2>
+            <textarea id="note-input" placeholder="Write your note here..."></textarea>
+            <button id="save-note-btn">Save Note</button>
+            <div id="notes-list"></div>
+        </section>
+
+        <section id="quiz">
+            <h2>Quiz</h2>
+            <div id="quiz-container"></div>
+            <button id="submit-quiz-btn">Submit</button>
+            <div id="quiz-results"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Group 8
+        </p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+    <script src="Calendar.js/dist/calendar.js"></script>
+</body>
+</html>
